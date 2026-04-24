@@ -2,21 +2,21 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { 
-  Box, 
-  Palette, 
-  Truck, 
-  ShieldCheck, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Instagram, 
-  Users, 
-  Map, 
-  Smile, 
-  CheckCheck, 
-  Loader2, 
-  ArrowRight, 
+import {
+  Box,
+  Palette,
+  Truck,
+  ShieldCheck,
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Users,
+  Map,
+  Smile,
+  CheckCheck,
+  Loader2,
+  ArrowRight,
   ImageOff,
   Menu,
   X
@@ -39,12 +39,12 @@ const brand = {
 };
 
 const IMAGES = {
-  hero: "https://picsum.photos/seed/timmysignshero/1920/1080",
+  hero: "/hero.png",
   products: [
-    "https://picsum.photos/seed/services2/800/600",
-    "https://picsum.photos/seed/services3/800/600",
-    "https://picsum.photos/seed/services4/800/600",
-    "https://picsum.photos/seed/services5/800/600"
+    "/service1.png",
+    "/service2.png",
+    "/service3.png",
+    "/service4.png"
   ]
 };
 
@@ -112,9 +112,8 @@ function Header() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-secondary/95 backdrop-blur-xl shadow-2xl py-3' : 'bg-transparent py-6'
-      }`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-secondary/95 backdrop-blur-xl shadow-2xl py-3' : 'bg-transparent py-6'
+        }`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#home" className="group flex items-center gap-2">
             <div className="w-10 h-10 bg-primary flex items-center justify-center font-black text-xl italic group-hover:rotate-12 transition-transform">
@@ -175,16 +174,11 @@ function Hero() {
         <SafeImage src={IMAGES.hero} alt="Timmy Signs Hero" fill className="object-cover opacity-40" priority />
         <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/80 to-primary/20" />
       </div>
-      
+
       {/* Signature Diagonal Element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/10 diagonal-split -z-10" />
 
       <div className={`relative z-10 text-center max-w-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-        <div className="flex justify-center mb-8">
-          <div className="px-4 py-1 bg-primary/20 border border-primary/40 rounded-full text-primary font-mono text-[10px] uppercase tracking-[0.4em]">
-            RC: 7058695
-          </div>
-        </div>
         <h1 className="font-heading text-6xl md:text-[9rem] font-black text-white leading-[0.85] tracking-tighter uppercase italic">
           Awesome<br /><span className="text-primary">Signage</span>
         </h1>
@@ -201,10 +195,6 @@ function Hero() {
             Our Services
           </a>
         </div>
-      </div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-        <div className="w-px h-24 bg-gradient-to-b from-white to-transparent" />
       </div>
     </section>
   );
@@ -236,7 +226,7 @@ function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, i) => (
-            <div key={i} 
+            <div key={i}
               style={{ transitionDelay: `${i * 120}ms` }}
               className={`p-10 bg-white/5 border border-white/10 hover:border-primary/50 group transition-all duration-500
               ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
@@ -263,7 +253,7 @@ function Gallery() {
             Our <span className="text-tertiary">Portfolio</span>
           </h2>
         </div>
-        
+
         <div className={`columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 transition-all duration-1000 ease-out overflow-hidden
           ${isVisible ? 'max-w-full opacity-100' : 'max-w-0 opacity-0'}`}>
           {IMAGES.products.map((src, i) => (
@@ -301,7 +291,7 @@ function About() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
           <p className="text-tertiary font-black uppercase tracking-[0.4em] mb-4 text-xs">Who We Are</p>
-          <h2 className="font-heading text-5xl md:text-7xl font-black text-white leading-[0.9] mb-8">
+          <h2 className="font-heading text-4xl md:text-7xl font-black text-white leading-[0.9] mb-8">
             CREATIVE <span className="text-accent">EDGE</span><br />PROFESSIONAL EXECUTION
           </h2>
           <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-xl">
@@ -309,7 +299,7 @@ function About() {
           </p>
           <div className="grid grid-cols-2 gap-8">
             {stats.map((s, i) => (
-              <div key={i} 
+              <div key={i}
                 style={{ transitionDelay: `${i * 150}ms` }}
                 className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="text-accent mb-2">{s.icon}</div>
@@ -323,7 +313,7 @@ function About() {
           <div className="aspect-square relative rounded-full overflow-hidden border-8 border-white/5 shadow-2xl">
             <SafeImage src={IMAGES.products[0]} alt="About Timmy Signs" fill className="object-cover" />
           </div>
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary rounded-2xl flex items-center justify-center p-8 text-center animate-float">
+          <div className="hidden md:absolute -bottom-10 -left-10 w-48 h-48 bg-primary rounded-2xl flex items-center justify-center p-8 text-center animate-float">
             <p className="font-heading font-black text-white text-xl leading-tight uppercase">Nationwide Delivery & Installation</p>
           </div>
         </div>
@@ -391,19 +381,19 @@ function Contact() {
               <div className="w-12 h-12 bg-black flex items-center justify-center text-accent shrink-0 transition-transform group-hover:scale-110">
                 <Phone size={24} />
               </div>
-              <p className="text-black text-2xl font-black tracking-tight">{brand.region === 'nigeria' ? '+234 906 954 7177' : brand.region}</p>
+              <p className="text-black text-sm md:text-lg font-black tracking-tight">{brand.region === 'nigeria' ? '+234 906 954 7177' : brand.region}</p>
             </div>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-black flex items-center justify-center text-accent shrink-0">
                 <MapPin size={24} />
               </div>
-              <p className="text-black text-lg font-bold leading-tight">Beside General Gas Bridge, Akobo, Ibadan | Lagos, Nigeria</p>
+              <p className="text-black text-sm md:text-lg font-black leading-tight">Beside General Gas Bridge, Akobo, Ibadan | Lagos, Nigeria</p>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-black flex items-center justify-center text-accent shrink-0">
                 <Instagram size={24} />
               </div>
-              <p className="text-black text-lg font-black uppercase">@signage_by_timmysigns</p>
+              <p className="text-black text-sm md:text-lg font-black uppercase">@signage_by_timmysigns</p>
             </div>
           </div>
         </div>
@@ -432,8 +422,8 @@ function Contact() {
                     className="w-full bg-white/5 border-2 border-white/10 p-4 text-white placeholder-white/30 text-base outline-none focus:border-accent transition-all font-bold"
                   />
                 ))}
-                <textarea 
-                  rows={4} 
+                <textarea
+                  rows={4}
                   placeholder="Tell us about your project (3D Sign, Cladding, etc.)"
                   value={form.message}
                   onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
@@ -474,7 +464,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        
+
         <div>
           <h4 className="font-heading font-black text-white text-xl uppercase tracking-tighter mb-8 italic">Quick Links</h4>
           <ul className="space-y-4">
@@ -498,7 +488,7 @@ function Footer() {
           </p>
         </div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-white/20 text-xs uppercase tracking-[0.4em] font-bold">
           © {new Date().getFullYear()} {brand.name} — Sharp delivery, nationwide.
